@@ -1,0 +1,40 @@
+const int lightPin = A3;
+const int moisturePin = A2; 
+
+
+void setup() {
+
+ Serial.begin(9600);// Initialize serial communication
+ pinMode(ledPin,OUTPUT);//Initialize the output pin
+}
+void loop() {  
+   Serial.println(Tdetect());  
+}
+
+int Ldetect(){
+    int light;
+    light = analogRead(lightPin);//read the data from potpin which
+                          //connected to Photoresistors
+    return light;
+  
+}
+
+int Tdetect(){
+  int reading; //raw reading from A1 
+  float volts;//Voltage output number 
+  float celsius; //celsius output number
+   reading = analogRead(A1); //read A1
+   volts = reading/1023.0 * 5.0;
+   celsius=volts*100.0-50; 
+   return celsius;
+}
+
+
+int Sdetect(){
+   int tempValue = 0; // variable to temporarly store moisture value 
+   for (int a = 0; a < 10; a++) { 
+     tempValue += analogRead(moisturePin); 
+     delay(100); 
+   } 
+   return tempValue / 10; 
+}
