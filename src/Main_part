@@ -1,3 +1,16 @@
+#include <WaveHC.h>
+#include <WaveUtil.h>
+const int lightPin = A3;
+const int moisturePin = A2; 
+
+SdReader card;    // This object holds the information for the card
+FatVolume vol;    // This holds the information for the partition on the card
+FatReader root;   // This holds the information for the volumes root directory
+FatReader file;   // This object represent the WAV file for a pi digit or period
+WaveHC wave;      // This is the only wave (audio) object, since we will only play one at a time
+
+#define error(msg) error_P(PSTR(msg))
+
 void setup() {
 
  Serial.begin(9600);// Initialize serial communication  // set up Serial library at 9600 bps
@@ -27,7 +40,24 @@ void loop() {
 int Ldetect(){
     int light;
     light = analogRead(lightPin);//read the data from potpin which
-                          //connected to Photoresistors
+    light=map(light,0,1023,0,3);
+    playcomplete(" ");//***this line is not finished
+    if(light==0)
+    {
+      playcomplete("low.wav");
+    }
+    else if (light == 1)
+    {
+      playcomplete("mid.wav");
+    }
+    else if (light ==2 )
+    {
+      playcomplete("high.wav");
+    }
+    else if ( light ==3)
+    {
+      playcomplete("vhigh.wav");
+    }
     return light;
   
 }
@@ -41,6 +71,10 @@ int Tdetect(){
    reading = analogRead(A1); //read A1
    volts = reading/1023.0 * 5.0;
    celsius=volts*100.0-50; 
+   playcomplete("");//** imcomplete;
+   numberSp(celsius);
+   playcomplete("cel.wav");//** imcomplete
+   
    return celsius;
 }
 
@@ -53,7 +87,26 @@ int Sdetect(){
      tempValue += analogRead(moisturePin); 
      delay(100); 
    } 
-   return tempValue / 10; 
+   tempValue=tempValue/10;
+   tempValue=(tempValue,0,1023,0,3);
+   playcomplete("");//** imcomplete;
+    if(tempValue==0)
+    {
+      playcomplete("low.wav");
+    }
+    else if (tempValue == 1)
+    {
+      playcomplete("mid.wav");
+    }
+    else if (tempValue ==2 )
+    {
+      playcomplete("high.wav");
+    }
+    else if ( tempValue ==3)
+    {
+      playcomplete("vhigh.wav");
+    }
+   return tempValue; 
 }
 
 
