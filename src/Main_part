@@ -1,16 +1,3 @@
-#include <WaveHC.h>
-#include <WaveUtil.h>
-const int lightPin = A3;
-const int moisturePin = A2; 
-
-SdReader card;    // This object holds the information for the card
-FatVolume vol;    // This holds the information for the partition on the card
-FatReader root;   // This holds the information for the volumes root directory
-FatReader file;   // This object represent the WAV file for a pi digit or period
-WaveHC wave;      // This is the only wave (audio) object, since we will only play one at a time
-
-#define error(msg) error_P(PSTR(msg))
-
 void setup() {
 
  Serial.begin(9600);// Initialize serial communication  // set up Serial library at 9600 bps
@@ -33,8 +20,9 @@ void setup() {
 }
 void loop() {  
    Serial.println(Tdetect());  
-   playcomplete("XKS"+".WAV");
 }
+
+
 
 int Ldetect(){
     int light;
@@ -43,6 +31,8 @@ int Ldetect(){
     return light;
   
 }
+
+
 
 int Tdetect(){
   int reading; //raw reading from A1 
@@ -53,6 +43,8 @@ int Tdetect(){
    celsius=volts*100.0-50; 
    return celsius;
 }
+
+
 
 
 int Sdetect(){
@@ -110,6 +102,31 @@ void playfile(char *name) {
   }
   // ok time to play!
   wave.play();
+}
+
+//this part is for playing numbers;
+char ten[6];
+char one[6];
+void numberSp(int i)
+{
+  if (i<0)
+  {
+    playcomplete("minus.wav");
+    i=-i;
+  }
+  int tens = i/10;
+  int ones = i - tens*10;
+  char t = char(tens);
+  char o = char(ones);
+  if(tens != 0)
+  {
+    strcpy_P(ten, PSTR("00.WAV"));
+    ten[0]=t;
+    playcomplete(ten);
+  }
+  strcpy_P(one, PSTR("0.WAV"));
+  one[0]=o;
+  playcomplete(one);
 }
 
 void sdErrorCheck(void) {
