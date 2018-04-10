@@ -3,6 +3,7 @@
 const int lightPin = A3;
 const int moisturePin = A2; 
 const int tmpPin=A1;
+const int buttonpin = 9 ;
 
 SdReader card;    // This object holds the information for the card
 FatVolume vol;    // This holds the information for the partition on the card
@@ -33,7 +34,13 @@ void setup() {
   root.ls();
 }
 void loop() {  
-   Serial.println(Tdetect());  
+  int light = Ldetect();
+   Sdetect();
+   Ldetect();
+   Tdetect();
+   
+   
+   delay(5000);
 }
 
 
@@ -41,7 +48,9 @@ void loop() {
 int Ldetect(){
     int light;
     light = analogRead(lightPin);//read the data from potpin which
-    light=map(light,0,1023,0,3);
+    Serial.println(light);
+    light=map(light,0,800,0,3);
+    
     playcomplete("lig.wav");//***this line is not finished
     if(light==0)
     {
@@ -89,8 +98,11 @@ int Sdetect(){
      delay(100); 
    } 
    tempValue=tempValue/10;
-   tempValue=(tempValue,0,1023,0,3);
-   playcomplete("soi");//** imcomplete;
+   Serial.println(tempValue);
+   tempValue=map(tempValue,1023,0,0,3);
+   Serial.println(tempValue);
+   
+   playcomplete("soi.wav");//** imcomplete;
     if(tempValue==0)
     {
       playcomplete("low.wav");
@@ -109,7 +121,10 @@ int Sdetect(){
     }
    return tempValue; 
 }
-
+ void conditionOut(){
+  
+ }
+ 
 
 
 
@@ -159,8 +174,6 @@ void playfile(char *name) {
 }
 
 //this part is for playing numbers;
-char ten[6];
-char one[6];
 void numberSp(int i)
 {
   if (i<0)
@@ -168,19 +181,32 @@ void numberSp(int i)
     playcomplete("minus.wav");
     i=-i;
   }
+  String owav = "0.wav";
+  String wav =".wav";
   int tens = i/10;
   int ones = i - tens*10;
-  char t = char(tens);
-  char o = char(ones);
+  String ten = tens + owav;
+  String one = ones + wav;
+  char chat_ten[8];
+  char chat_one[8];
+  ten.toCharArray(chat_ten, 8);
+  one.toCharArray(chat_one, 8);
+
+    int sensorValue = 100; 
+  String stringOne = "Sensor value: ";
+  String stringThree = stringOne + sensorValue;
+  Serial.println(stringThree); 
+  
+  
   if(tens != 0)
   {
-    strcpy_P(ten, PSTR("00.WAV"));
-    ten[0]=t;
-    playcomplete(ten);
+    
+    playcomplete(chat_ten);
   }
-  strcpy_P(one, PSTR("0.WAV"));
-  one[0]=o;
-  playcomplete(one);
+  if(ones!=0)
+  {
+   playcomplete(chat_one);
+  }
 }
 
 void sdErrorCheck(void) {
