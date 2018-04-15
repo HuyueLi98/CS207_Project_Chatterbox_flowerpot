@@ -6,9 +6,9 @@ Picture:
 
 Repository content
 ----
-src/ :The arduino code that needed to run the project
-sound_new/ : The example sound file
-Tools and Parts/:the circuit picture and the parts pictures in it.
+    src/ :The arduino code that needed to run the project \n
+    sound_new/ : The example sound file \n
+    Tools and Parts/:the circuit picture and the parts pictures in it.
 
 Required items:
 ----
