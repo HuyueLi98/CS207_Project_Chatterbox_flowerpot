@@ -20,7 +20,7 @@ Required items:
     -Flowerpot and plant
     -3 X 10k ohm resistor
     -SD card
-    -iron solder
+    -iron solder    
 
 Library
 -----
