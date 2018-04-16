@@ -14,10 +14,9 @@ At the same time, I want to bring happiness to people through this project. We o
 
 Repository content
 ----
-    src/ :The arduino code that needed to run the project \n
-    sound_new/ : The example sound file \n
-    Images/:the circuit picture and the finishied pictures in it.
-
+    src/ :The arduino code that needed to run the project. 
+    sound_new/ : The example sound file. 
+    Images/:the circuit picture and the finishied pictures in it.
 Required items:
 ----
     -Arduino UNO
