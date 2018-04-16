@@ -29,6 +29,8 @@ Required items:
     -1 X 220 ohm resistor
     -SD card
     -iron solder
+    
+    
 Library
 -----
 WaveHC by adafruit:https://github.com/adafruit/WaveHC
