@@ -40,4 +40,5 @@ Huyue Li :Design,Code,Build up,Test,Writing
 Other resources
 ----
 adafruit wave shield tutorial:https://learn.adafruit.com/adafruit-wave-shield-audio-shield-for-arduino/overview
+
 The origin idea is from:https://create.arduino.cc/projecthub/arduino/plant-communicator-7ea06f?ref=search&ref_id=plant&offset=8
