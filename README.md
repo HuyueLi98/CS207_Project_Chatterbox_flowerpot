@@ -25,7 +25,7 @@ Required items:
     -Speaker
     -An RGB LED
     -Flowerpot and plant
-    -2 X 2.2k ohm resistor
+    -2 X 2.2k ohm resistor
     -1 X 220 ohm resistor
     -SD card
     -iron solder
