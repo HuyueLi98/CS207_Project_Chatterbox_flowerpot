@@ -3,12 +3,12 @@ Project name: Plant overwatch chatterbox
 =======
 
 Picture:
-
+![](https://github.com/HuyueLi98/CS207_Project_Chatterbox_flowerpot/blob/master/Images/IMG_1516.JPG)
 Repository content
 ----
     src/ :The arduino code that needed to run the project \n
     sound_new/ : The example sound file \n
-    Tools and Parts/:the circuit picture and the parts pictures in it.
+    Images/:the circuit picture and the finishied pictures in it.
 
 Required items:
 ----
