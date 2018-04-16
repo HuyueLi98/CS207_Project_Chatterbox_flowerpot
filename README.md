@@ -23,10 +23,11 @@ Required items:
     -Temperature and Light Sensor
     -ADAFRUIT WAVE SHIELD KIT FOR SOUND, MUSIC & AUDIO 
     -Speaker
-    -LEDS
+    -An RGB LED
     -Flowerpot and plant
-    -3 X 10k ohm resistor
-    -SD card
+    -2 X 2.2k ohm resistor
+    -1 X 220 ohm resistor
+    -SD card
     -iron solder
 Library
 -----
