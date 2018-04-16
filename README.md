@@ -12,15 +12,15 @@ Repository content
 
 Required items:
 ----
--Arduino UNO
--Temperature and Light Sensor
--ADAFRUIT WAVE SHIELD KIT FOR SOUND, MUSIC & AUDIO 
--Speaker
--LEDS
--Flowerpot and plant
--3 X 10k ohm resistor
--SD card
--irom solder
+    -Arduino UNO
+    -Temperature and Light Sensor
+    -ADAFRUIT WAVE SHIELD KIT FOR SOUND, MUSIC & AUDIO 
+    -Speaker
+    -LEDS
+    -Flowerpot and plant
+    -3 X 10k ohm resistor
+    -SD card
+    -iron solder
 
 Library
 -----
