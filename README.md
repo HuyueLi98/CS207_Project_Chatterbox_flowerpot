@@ -7,6 +7,9 @@ Picture:
 Circuit:
 ![](https://github.com/HuyueLi98/CS207_Project_Chatterbox_flowerpot/blob/master/Images/Circuit%20of%20my%20project.jpg)
 
+
+Please note that you need to connect the adafruit wave shield to the Arduino Uno.And connect the Speaker to Adafruit wave shield.
+
 Introduction
 ----
 This project can monitor temperature, soil moisture, and light intensity. And the data results are output through an LED lantern and a speaker. The original intention of my project was to make people realize that plants are also alive. Although they cannot express themselves, they are composed of cells just like animals. This project simulates the senses of plants and gives them the ability to speak. My purpose is to make plants communicate with humans like pets.
